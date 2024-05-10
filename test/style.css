@@ -1,0 +1,328 @@
+/* Modern and Apple-like design */
+body {
+    font-family: 'San Francisco', 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f5f7;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #f5f5f7;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo img {
+    max-height: 30px;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin-right: 30px;
+  }
+  
+  nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #666;
+  }
+  
+  .toggle-btn {
+    display: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .language-switch {
+    display: flex;
+    align-items: center;
+  }
+  
+  #lang-btn {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  #lang-btn i {
+    margin-right: 5px;
+  }
+  
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 20px;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+    text-align: left;
+  }
+  
+  .hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .btn {
+    display: inline-block;
+    background-color: #0071e3;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0077e6;
+  }
+  
+  .about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 20px;
+  }
+  
+  .about-image {
+    max-width: 600px;
+  }
+  
+  .about-content {
+    max-width: 600px;
+    text-align: left;
+  }
+  
+  .about-content h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .about-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  /* Add more styles for the other sections and footer */
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+    }
+  
+    .toggle-btn {
+      display: block;
+    }
+  
+    nav.active ul {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background-color: #f5f5f7;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+  
+    nav.active ul li {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .hero, .about {
+      flex-direction: column;
+      padding: 80px 20px;
+    }
+  
+    .hero-content, .about-content {
+      max-width: 100%;
+      text-align: center;
+      margin-bottom: 40px;
+
+    }
+
+    .hero-gallery {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        overflow: hidden;
+      }
+      
+      .gallery-container {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+      
+      .gallery-container img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      
+      .gallery-controls {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+      }
+      
+      .gallery-controls button {
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        color: #333;
+        font-size: 24px;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      .gallery-controls button:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+      
+
+      .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 100px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .hero-content {
+        max-width: 600px;
+        text-align: left;
+      }
+      
+      .hero-gallery {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        overflow: hidden;
+      }
+      
+      .gallery-container {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+      
+      .gallery-container img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      
+      .gallery-controls {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+      }
+      
+      .gallery-controls button {
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        color: #333;
+        font-size: 24px;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      .gallery-controls button:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+      
+      .about {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 100px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .about-image {
+        max-width: 600px;
+      }
+      
+      .about-content {
+        max-width: 600px;
+        text-align: left;
+      }
+      
+      /* ... (previous CSS styles) ... */
+      
+      @media (max-width: 1024px) {
+        .hero, .about {
+          padding: 80px 20px;
+        }
+      
+        .hero-content, .about-content {
+          max-width: 100%;
+        }
+      
+        .hero-gallery, .about-image {
+          max-width: 500px;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .hero, .about {
+          flex-direction: column;
+        }
+      
+        .hero-gallery, .about-image {
+          max-width: 100%;
+          margin-bottom: 40px;
+        }
+      }

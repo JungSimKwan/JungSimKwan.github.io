@@ -1,5 +1,99 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<title>Redirecting to https://example.com/</title>
-<meta http-equiv="refresh" content="0; URL=https://example.com/">
-<link rel="canonical" href="https://example.com/">
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正心舘 - 跆拳道團體</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .gallery {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>正心舘</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">關於我們</a></li>
+        <li><a href="news.html">最新資訊</a></li>
+        <li><a href="#courses">課程資訊</a></li>
+        <li><a href="#contact">聯絡我們</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>關於我們</h2>
+      <div class="gallery">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image: url('https://via.placeholder.com/600x400?text=Taekwondo+About+Image');"></div>
+            <div class="swiper-slide" style="background-image: url('image2.jpg');"></div>
+            <div class="swiper-slide" style="background-image: url('image3.jpg');"></div>
+            <!-- Add more swiper-slide elements as needed -->
+          </div>
+        </div>
+      </div>
+      <img class="image" src="/image/banner.jpg" alt="正心舘圖片">
+      <p>歡迎來到正心舘！我們是一個致力於透過跆拳道練習培養紀律、自信和身體健康的團體。我們的經驗豐富的教練團隊為各年齡層和技術水平的學生提供優質的培訓。</p>
+    </section>
+
+    <section id="courses">
+      <h2>課程內容</h2>
+      <ul>
+        <li>跆拳道基本技巧</li>
+        <li>進階跆拳道</li>
+        <li>跆拳道比賽練</li>
+        <li>跆拳道套路練習</li>
+      </ul>
+    </section>
+
+    <!--
+    <section id="contact">
+      <h2>聯絡我們</h2>
+      <p>如果您有興趣加入我們的課程或有任何疑問，請填寫下面的表格或直接聯繫我們：</p>
+      <form>
+        <input type="text" placeholder="您的姓名">
+        <input type="email" placeholder="您的電子郵件">
+        <textarea placeholder="您的訊息"></textarea>
+        <button type="submit">發送訊息</button>
+      </form>
+    </section>
+    -->
+  </main>
+
+  <footer>
+    <p>&copy; 2024 正心舘。保留所有權利。</p>
+  </footer>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        effect: 'slide',
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    });
+  </script>
+</body>
+</html>
