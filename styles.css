@@ -14,7 +14,10 @@ body, h1, h2, p, ul, li, form, input, textarea, button {
   }
   
   header {
-    background-color: #333;
+    /* background-color: #333; */
+    background-image: url(image/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
     padding: 20px;
   }
   
