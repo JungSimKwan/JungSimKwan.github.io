@@ -1,0 +1,9 @@
+name: "荃灣西約體育館"
+id: "tww"
+weight: 4
+classes:
+  - 1:
+    "name": "初級班"
+    "day_of_week": "6"
+    "starttime": "10:00"
+    "endtime": "11:30"
