@@ -1,0 +1,14 @@
+name: "和興體育館"
+id: "fl"
+weight: 6
+classes:
+  - 1:
+    "name": "兒童班"
+    "day_of_week": "3"
+    "starttime": "18:00"
+    "endtime": "19:30"
+  - 2:
+    "name": "青少年/成人班"
+    "day_of_week": "3"
+    "starttime": "19:30"
+    "endtime": "21:00"

@@ -1,0 +1,10 @@
+name: "馬鞍山體育館"
+id: "mos"
+weight: 1
+banner: "img/courses/mos.jpg"
+classes:
+  - 1:
+    "name": "恆常班"
+    "day_of_week": "6"
+    "starttime": "13:00"
+    "endtime": "14:30"
