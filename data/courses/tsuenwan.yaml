@@ -1,0 +1,9 @@
+name: "荃灣體育館"
+id: "tw"
+weight: 4
+classes:
+  - 1:
+    "name": "恆常班"
+    "day_of_week": "6"
+    "starttime": "18:00"
+    "endtime": "19:30"

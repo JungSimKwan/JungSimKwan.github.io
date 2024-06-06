@@ -1,0 +1,25 @@
+/* your styles go here */
+/* Example site test */
+
+.box-image-text .image {
+    min-height: 190px;
+    max-height: 190px;
+}
+
+.box-image-text .image img {
+    max-height: 190px;
+    margin: auto;
+}
+
+.box-simple {
+    min-height: 230px;
+}
+
+.home-carousel {
+    background: url('../img/banner.jpg') center center repeat;
+}
+
+.anchor {
+    position: absolute;
+    transform: translateY(-30vh);
+}

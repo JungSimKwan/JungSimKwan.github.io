@@ -1,0 +1,9 @@
+name: "和興體育館"
+id: "fl"
+weight: 6
+classes:
+  - 1:
+    "name": "恆常班"
+    "day_of_week": "5"
+    "starttime": "17:30"
+    "endtime": "19:00"

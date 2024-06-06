@@ -1,0 +1,82 @@
+{{ if isset .Site.Data "courses" }}
+{{ if gt (len .Site.Data.courses) 0 }}
+<div class="container">
+    <div class="row">
+        <!-- *** LEFT COLUMN *** -->
+        {{ $courses := sort .Site.Data.courses "weight" }}
+        <div class="col-md-9" id="blog-listing-medium">
+
+            {{ range $courses }}
+            <span class="anchor" id="{{ .id }}"></span>
+            <section class="courses">
+                <h2>{{ .name }}</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                      <div class="image">
+                          <a href="{{ .Permalink }}">
+                              {{ if .banner }}
+                              <img src="{{ .banner | relURL }}" class="img-responsive" alt="">
+                              {{ end }}
+                          </a>
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                        {{ if .classes }}
+                        <table class="table">
+                            <thead>
+                                <tr><th>課程</th><th>日期</th><th>時間</th></tr>
+                            </thead>
+                            <tbody>
+                                {{ range .classes }}
+                                {{ $day_of_week :=  print "day_of_week." .day_of_week}}
+                                <tr><td>{{ .name }}</td><td>{{ T $day_of_week }}</td><td>{{ .starttime }} - {{ .endtime }} </td></tr>
+                                {{ end }}
+                            </tbody>
+                        </table>
+                        {{ end }}
+                        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                        <div class="clearfix">
+                            <p class="author-category">
+                              {{ if isset .Params "authors" }}
+          {{ i18n "authorBy" }} {{ range $index, $author := .Params.authors }}{{ if $index }}, {{ end }}<a href="{{ (printf "%s/%s" ("authors" | relLangURL) ($author | urlize)) }}">{{ $author }}</a>{{ end }}
+                              {{ end }}
+                              {{ if isset .Params "categories" }}
+                              {{ if gt (len .Params.categories) 0 }}
+                              in 
+                              {{ range $index, $category := .Params.categories }}{{ if $index }}, {{ end }}
+                                  <a href="{{ "categories/" | relLangURL }}{{ . | urlize | lower }}">{{ $category }}</a>{{ end }}
+                              {{ end }}
+                              {{ end }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {{ end }}
+        </div>
+        <!-- /.col-md-9 -->
+
+        <!-- *** LEFT COLUMN END *** -->
+
+        <!-- *** RIGHT COLUMN ***
+_________________________________________________________ -->
+
+        <div class="col-md-3">
+
+            <!-- *** MENUS AND WIDGETS *** -->
+
+            {{ partial "sidebar.html" . }}
+
+            <!-- *** MENUS AND FILTERS END *** -->
+
+        </div>
+        <!-- /.col-md-3 -->
+
+        <!-- *** RIGHT COLUMN END *** -->
+
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+{{ end }}
+{{ end }}

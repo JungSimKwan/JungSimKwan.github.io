@@ -1,0 +1,14 @@
+name: "彩虹道體育館"
+id: "chr"
+weight: 4
+classes:
+  - 1:
+    "name": "兒童班"
+    "day_of_week": "6"
+    "starttime": "10:00"
+    "endtime": "11:00"
+  - 1:
+    "name": "青少年班"
+    "day_of_week": "6"
+    "starttime": "11:00"
+    "endtime": "12:00"
