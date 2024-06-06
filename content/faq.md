@@ -1,7 +1,8 @@
-<!-- +++
++++
 title = "上課守則"
 description = "Frequently asked questions"
 keywords = ["跆拳道精神","跆拳道上課守則"]
+draft = true
 +++
 
 ## 1. WHAT TO DO IF I HAVE STILL NOT RECEIVED THE ORDER?
@@ -38,4 +39,4 @@ Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac tu
 
 ---
 
-> In case you haven't found the answer for your question please feel free to contact us, our customer support will be happy to help you. -->
+> In case you haven't found the answer for your question please feel free to contact us, our customer support will be happy to help you.
