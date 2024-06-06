@@ -309,7 +309,7 @@ pluralizelisttitles = false
     enable = false
 
 [taxonomies]
-  category = "categories"
-  tag = "tags"
-  author = "authors"
+  #category = "categories"
+  #tag = "tags"
+  #author = "authors"
   region = "regions"
