@@ -1,6 +1,7 @@
 name: "車公廟體育館"
 id: "ckt"
 weight: 4
+banner: "img/courses/ckt.jpg"
 classes:
   - 1:
     "name": "初級班"

@@ -1,6 +1,7 @@
 name: "深水埗體育館"
 id: "ssp"
 weight: 5
+banner: "img/courses/ssp.jpeg"
 classes:
   - 1:
     "name": "兒童班"

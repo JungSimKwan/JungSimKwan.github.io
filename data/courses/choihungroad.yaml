@@ -1,6 +1,7 @@
 name: "彩虹道體育館"
 id: "chr"
-weight: 4
+weight: 7
+banner: "img/courses/choihungroad.jpeg"
 classes:
   - 1:
     "name": "兒童班"

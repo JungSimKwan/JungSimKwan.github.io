@@ -1,6 +1,7 @@
 name: "恆安體育館/恆安社區中心"
 id: "ho"
 weight: 2
+banner: "img/courses/ho.png"
 regions: ["mos", "nte"]
 classes:
   - 1:

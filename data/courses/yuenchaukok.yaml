@@ -1,6 +1,7 @@
 name: "圓洲角體育館"
 id: "yck"
 weight: 3
+banner: "img/courses/yck.jpeg"
 classes:
   - 1:
     "name": "初級班"
