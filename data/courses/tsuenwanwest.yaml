@@ -5,5 +5,5 @@ classes:
   - 1:
     "name": "初級班"
     "day_of_week": "6"
-    "starttime": "10:00"
-    "endtime": "11:30"
+    "starttime": "13:00"
+    "endtime": "14:30"
