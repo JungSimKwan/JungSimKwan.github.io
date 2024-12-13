@@ -1,6 +1,6 @@
 name: "荃灣體育館"
 id: "tw"
-weight: 5
+weight: 6
 banner: "img/courses/tw.jpeg"
 classes:
   - 1:

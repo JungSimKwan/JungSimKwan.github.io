@@ -1,6 +1,6 @@
 name: "彩虹道體育館"
 id: "chr"
-weight: 7
+weight: 8
 banner: "img/courses/choihungroad.jpeg"
 classes:
   - 1:
