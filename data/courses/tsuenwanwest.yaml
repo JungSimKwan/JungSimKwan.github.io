@@ -1,6 +1,7 @@
 name: "荃灣西約體育館"
 id: "tww"
 weight: 4
+banner: "img/courses/tws.jpeg"
 classes:
   - 1:
     "name": "初級班"
