@@ -1,3 +1,11 @@
+v1.0.4
+- add photo for Tsuen Wan West
+- move friendly url photos path
+
+
+v1.0.3
+update membership form
+
 v1.0.2
 Update courses info
  - tsuen wan wesst
