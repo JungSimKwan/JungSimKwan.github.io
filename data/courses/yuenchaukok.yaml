@@ -11,5 +11,5 @@ classes:
   - 2:
     "name": "恆常班"
     "day_of_week": "7"
-    "starttime": "11:00"
-    "endtime": "12:00"
+    "starttime": "13:00"
+    "endtime": "14:00"
