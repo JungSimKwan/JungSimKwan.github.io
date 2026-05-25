@@ -1,3 +1,12 @@
+v1.0.2
+Update courses info
+ - tsuen wan wesst
+ - hang on
+ - yuen chau kok
+
+v1.0.1
+ - fix: hide draft posts
+
 v1.0.0
 Releasee with Hugo Universal Template
 
