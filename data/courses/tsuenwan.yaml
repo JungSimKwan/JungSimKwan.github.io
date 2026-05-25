@@ -2,6 +2,8 @@ name: "荃灣體育館"
 id: "tw"
 weight: 5
 banner: "img/courses/tw.jpeg"
+region: "新界西"
+region_id: "ntw"
 classes:
   - 1:
     "name": "恆常班"

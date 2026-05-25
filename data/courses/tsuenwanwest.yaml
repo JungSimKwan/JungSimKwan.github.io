@@ -2,6 +2,8 @@ name: "荃灣西約體育館"
 id: "tww"
 weight: 4
 banner: "img/courses/tww.jpeg"
+region: "新界西"
+region_id: "ntw"
 classes:
   - 1:
     "name": "初級班"

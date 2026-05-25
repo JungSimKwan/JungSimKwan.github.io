@@ -7,9 +7,9 @@
           {{ .Site.Params.topbar.text | safeHTML }}
         </div>
         <div class="col-xs-7">
-          <div class="social">
+          <div class="social" role="navigation" aria-label="社交媒體連結">
             {{ range .Site.Menus.topbar.ByWeight }}
-            <a href="{{ .URL | safeURL }}" target="_blank" style="opacity: 1;">{{ .Pre }}</a>
+            <a href="{{ .URL | safeURL }}" target="_blank" rel="noopener noreferrer" style="opacity: 1;" aria-label="{{ .Name }}">{{ .Pre }}</a>
             {{ end }}
           </div>
         </div>

@@ -2,6 +2,8 @@ name: "和興體育館"
 id: "fl"
 weight: 8
 banner: "img/courses/fl.jpeg"
+region: "新界東"
+region_id: "nte"
 classes:
   - 1:
     "name": "恆常班"
