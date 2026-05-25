@@ -2,8 +2,8 @@ name: "圓洲角體育館"
 id: "yck"
 weight: 3
 banner: "img/courses/yck.jpeg"
-region: "九龍"
-region_id: "kowloon"
+region: "新界東"
+region_id: "nte"
 classes:
   - 1:
     "name": "初級班"

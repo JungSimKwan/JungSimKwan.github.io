@@ -1,0 +1,17 @@
+name: "大興體育館"
+id: "th"
+weight: 7
+# banner: "img/courses/choihungroad.jpeg"
+region: "新界西"
+region_id: "ntw"
+classes:
+  - 1:
+    "name": "3-5歲"
+    "day_of_week": "6"
+    "starttime": "13:00"
+    "endtime": "14:00"
+  - 1:
+    "name": "6歲以上"
+    "day_of_week": "6"
+    "starttime": "14:00"
+    "endtime": "15:00"
