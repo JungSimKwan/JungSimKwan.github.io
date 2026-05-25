@@ -1,5 +1,6 @@
 +++
 title = "聯絡我們"
+layout = "contact"
 id = "contact"
 +++
 

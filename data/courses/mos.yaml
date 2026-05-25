@@ -2,6 +2,8 @@ name: "馬鞍山體育館"
 id: "mos"
 weight: 1
 banner: "img/courses/mos.jpg"
+region: "新界東"
+region_id: "nte"
 classes:
   - 1:
     "name": "恆常班"

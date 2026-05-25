@@ -2,6 +2,8 @@ name: "彩榮路體育館"
 id: "cwr"
 weight: 3
 banner: "img/courses/cwr.png"
+region: "九龍"
+region_id: "kowloon"
 classes:
   - 1:
     "name": "兒童班"

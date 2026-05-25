@@ -2,6 +2,8 @@ name: "彩虹道體育館"
 id: "chr"
 weight: 7
 banner: "img/courses/choihungroad.jpeg"
+region: "九龍"
+region_id: "kowloon"
 classes:
   - 1:
     "name": "兒童班"

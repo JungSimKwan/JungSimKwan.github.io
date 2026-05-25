@@ -229,7 +229,7 @@ pluralizelisttitles = false
     contact_url = "/contact"
 
 [permalinks]
-    blog = "/blog/:year/:month/:day/:filename/"
+    blog = "/blog/:year/:month/:day/:contentbasename/"
 
 # Enable or disable top bar with social icons
 [params.topbar]
