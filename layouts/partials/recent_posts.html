@@ -15,11 +15,11 @@
             </p>
 
             <!-- *** REGION FILTERS *** -->
-            <div class="text-center" style="margin-bottom: 30px;">
-              <button class="btn btn-sm btn-default region-filter active" data-region="all">全部地區</button>
-              <button class="btn btn-sm btn-default region-filter" data-region="nte">新界東</button>
-              <button class="btn btn-sm btn-default region-filter" data-region="ntw">新界西</button>
-              <button class="btn btn-sm btn-default region-filter" data-region="kowloon">九龍</button>
+            <div class="text-center" role="group" aria-label="課堂地區篩選" style="margin-bottom: 30px;">
+              <button type="button" class="btn btn-sm btn-default region-filter active" data-region="all">全部地區</button>
+              <button type="button" class="btn btn-sm btn-default region-filter" data-region="nte">新界東</button>
+              <button type="button" class="btn btn-sm btn-default region-filter" data-region="ntw">新界西</button>
+              <button type="button" class="btn btn-sm btn-default region-filter" data-region="kowloon">九龍</button>
             </div>
 
             <!-- *** BLOG HOMEPAGE *** -->
@@ -63,6 +63,7 @@
 
                                 <div class="content">
                                     <h4><a href="{{ $url | relURL }}">{{ $element.name }}</a></h4>
+                                    <span class="course-badge">{{ $element.region }}</span>
                                     <p class="course-address">
                                       <i class="fas fa-map-marker-alt" style="color: #e74c3c; margin-right: 5px;"></i>
                                       <a href="https://www.google.com/maps/search/{{ $element.address_search | urlize }}" target="_blank" rel="noopener noreferrer" class="address-link" title="在Google Maps中查看">

@@ -4,11 +4,11 @@
 
     <!-- Region Filters -->
     <div class="row" style="margin-bottom: 30px;">
-        <div class="col-md-12 text-center">
-            <button class="btn btn-sm btn-default region-filter active" data-region="all">全部地區</button>
-            <button class="btn btn-sm btn-default region-filter" data-region="nte">新界東</button>
-            <button class="btn btn-sm btn-default region-filter" data-region="ntw">新界西</button>
-            <button class="btn btn-sm btn-default region-filter" data-region="kowloon">九龍</button>
+        <div class="col-md-12 text-center" role="group" aria-label="課堂地區篩選">
+            <button type="button" class="btn btn-sm btn-default region-filter active" data-region="all">全部地區</button>
+            <button type="button" class="btn btn-sm btn-default region-filter" data-region="nte">新界東</button>
+            <button type="button" class="btn btn-sm btn-default region-filter" data-region="ntw">新界西</button>
+            <button type="button" class="btn btn-sm btn-default region-filter" data-region="kowloon">九龍</button>
         </div>
     </div>
 
@@ -21,6 +21,7 @@
             <span class="anchor" id="{{ .id }}"></span>
             <section class="courses course-card" data-region="{{ .region_id }}">
                 <div class="course-header">
+                    <span class="course-badge">{{ .region }}</span>
                     <h2>{{ .name }}</h2>
                     <p class="course-location">
                         <i class="fas fa-map-marker-alt" style="color: #e74c3c; margin-right: 5px;"></i>
