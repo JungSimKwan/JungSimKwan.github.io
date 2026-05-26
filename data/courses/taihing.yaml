@@ -4,6 +4,8 @@ weight: 7
 # banner: "img/courses/choihungroad.jpeg"
 region: "新界西"
 region_id: "ntw"
+address_display: "屯門青松觀路38號(近大興邨及澤豐花園)"
+address_search: "大興體育館"
 classes:
   - 1:
     "name": "3-5歲"

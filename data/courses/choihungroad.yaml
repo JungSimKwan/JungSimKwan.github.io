@@ -4,6 +4,8 @@ weight: 5
 banner: "img/courses/choihungroad.jpeg"
 region: "九龍"
 region_id: "kowloon"
+address_display: "黃大仙彩虹道150號"
+address_search: "彩虹道體育館"
 classes:
   - 1:
     "name": "兒童班"

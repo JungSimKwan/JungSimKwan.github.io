@@ -63,7 +63,12 @@
 
                                 <div class="content">
                                     <h4><a href="{{ $url | relURL }}">{{ $element.name }}</a></h4>
-                                    <p class="intro" style="font-size: 12px; color: #999;">{{ $element.region }}</p>
+                                    <p class="course-address">
+                                      <i class="fas fa-map-marker-alt" style="color: #e74c3c; margin-right: 5px;"></i>
+                                      <a href="https://www.google.com/maps/search/{{ $element.address_search | urlize }}" target="_blank" rel="noopener noreferrer" class="address-link" title="在Google Maps中查看">
+                                        {{ $element.address_display }}
+                                      </a>
+                                    </p>
                                     <p class="read-more">
                                       <a href="{{ $url | relURL }}" class="btn btn-template-main">{{ i18n "learnMore" }}</a>
                                     </p>

@@ -49,3 +49,109 @@
 .course-card.hidden {
     display: none;
 }
+
+/* Address Styles */
+.course-address {
+    font-size: 11px !important;
+    color: #666 !important;
+    margin: 8px 0 !important;
+    line-height: 1.4;
+}
+
+.course-address a.address-link {
+    color: #666;
+    text-decoration: none;
+    border-bottom: 1px dotted #e74c3c;
+    transition: all 0.2s ease;
+    display: inline;
+    word-break: break-word;
+}
+
+.course-address a.address-link:hover {
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+.course-address i {
+    flex-shrink: 0;
+}
+
+/* Courses Page Styles */
+.course-header {
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.course-header h2 {
+    margin: 0 0 10px 0;
+    font-size: 28px;
+}
+
+.course-location {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+}
+
+.course-location i {
+    color: #e74c3c;
+}
+
+.address-link-detail {
+    color: #555;
+    text-decoration: none;
+    border-bottom: 2px dotted #e74c3c;
+    transition: all 0.3s ease;
+}
+
+.address-link-detail:hover {
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+.course-schedule {
+    margin-bottom: 20px;
+}
+
+.course-schedule h4 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.course-schedule table {
+    font-size: 13px;
+}
+
+.course-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.course-actions .btn {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    font-size: 12px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .course-header h2 {
+        font-size: 24px;
+    }
+
+    .course-location {
+        font-size: 13px;
+    }
+
+    .course-actions {
+        flex-direction: column;
+    }
+
+    .course-actions .btn {
+        min-width: auto;
+    }
+}

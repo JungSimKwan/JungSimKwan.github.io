@@ -4,6 +4,8 @@ weight: 6
 banner: "img/courses/tw.jpeg"
 region: "新界西"
 region_id: "ntw"
+address_display: "新界荃灣永順街53號（近港鐵屯馬線荃灣西站）"
+address_search: "荃灣體育館"
 classes:
   - 1:
     "name": "恆常班"

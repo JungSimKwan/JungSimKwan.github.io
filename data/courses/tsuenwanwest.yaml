@@ -4,6 +4,8 @@ weight: 6
 banner: "img/courses/tww.jpeg"
 region: "新界西"
 region_id: "ntw"
+address_display: "荃灣海安路68號(近麗城花園)"
+address_search: "荃灣西約體育館"
 classes:
   - 1:
     "name": "初級班"

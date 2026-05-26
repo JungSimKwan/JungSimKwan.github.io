@@ -4,6 +4,8 @@ weight: 3
 banner: "img/courses/yck.jpeg"
 region: "新界東"
 region_id: "nte"
+address_display: "沙田銀城街35號(第一城站)"
+address_search: "圓洲角體育館"
 classes:
   - 1:
     "name": "兒童班"

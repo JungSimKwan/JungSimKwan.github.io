@@ -4,6 +4,8 @@ weight: 2
 banner: "img/courses/ho.png"
 region: "新界東"
 region_id: "nte"
+address_display: "沙田馬鞍山恆錦街1號恆安商場4樓"
+address_search: "恆安體育館"
 classes:
   - 1:
     "name": "恆常班"

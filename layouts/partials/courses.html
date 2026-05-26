@@ -1,6 +1,17 @@
 {{ if isset .Site.Data "courses" }}
 {{ if gt (len .Site.Data.courses) 0 }}
 <div class="container">
+
+    <!-- Region Filters -->
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-sm btn-default region-filter active" data-region="all">全部地區</button>
+            <button class="btn btn-sm btn-default region-filter" data-region="nte">新界東</button>
+            <button class="btn btn-sm btn-default region-filter" data-region="ntw">新界西</button>
+            <button class="btn btn-sm btn-default region-filter" data-region="kowloon">九龍</button>
+        </div>
+    </div>
+
     <div class="row">
         <!-- *** LEFT COLUMN *** -->
         {{ $courses := sort .Site.Data.courses "weight" }}
@@ -8,35 +19,54 @@
 
             {{ range $courses }}
             <span class="anchor" id="{{ .id }}"></span>
-            <section class="courses">
-                <h2>{{ .name }}</h2>
+            <section class="courses course-card" data-region="{{ .region_id }}">
+                <div class="course-header">
+                    <h2>{{ .name }}</h2>
+                    <p class="course-location">
+                        <i class="fas fa-map-marker-alt" style="color: #e74c3c; margin-right: 5px;"></i>
+                        <a href="https://www.google.com/maps/search/{{ .address_search | urlize }}" target="_blank" rel="noopener noreferrer" class="address-link-detail" title="在Google Maps中查看位置">
+                            {{ .address_display }}
+                        </a>
+                    </p>
+                </div>
                 <div class="row">
                     <div class="col-md-4">
                       <div class="image">
                           <a href="{{ if .Permalink }}{{ .Permalink }}{{ else }}#{{ .id }}{{ end }}">
                               {{ if .banner }}
-                              <img src="{{ .banner | relURL }}" class="img-responsive" alt="">
+                              <img src="{{ .banner | relURL }}" class="img-responsive" alt="{{ .name }}">
                               {{ end }}
                           </a>
                       </div>
                     </div>
                     <div class="col-md-8">
                         {{ if .classes }}
-                        <table class="table">
-                            <thead>
-                                <tr><th>課程</th><th>日期</th><th>時間</th></tr>
-                            </thead>
-                            <tbody>
-                                {{ range .classes }}
-                                {{ $day_of_week :=  print "day_of_week." .day_of_week}}
-                                <tr><td>{{ .name }}</td><td>{{ T $day_of_week }}</td><td>{{ .starttime }} - {{ .endtime }} </td></tr>
-                                {{ end }}
-                            </tbody>
-                        </table>
+                        <div class="course-schedule">
+                            <h4>課程時間</h4>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr><th>課程</th><th>日期</th><th>時間</th></tr>
+                                </thead>
+                                <tbody>
+                                    {{ range .classes }}
+                                    {{ $day_of_week :=  print "day_of_week." .day_of_week}}
+                                    <tr><td>{{ .name }}</td><td>{{ T $day_of_week }}</td><td>{{ .starttime }} - {{ .endtime }} </td></tr>
+                                    {{ end }}
+                                </tbody>
+                            </table>
+                        </div>
                         {{ end }}
                         {{ if .Permalink }}
                         <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
                         {{ end }}
+                        <div class="course-actions" style="margin-top: 15px;">
+                            <a href="https://api.whatsapp.com/send?phone=85266820106&text=我想報名 {{ .name }}" class="btn btn-success btn-sm" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-whatsapp"></i> WhatsApp 報名
+                            </a>
+                            <a href="https://www.google.com/maps/search/{{ .address_search | urlize }}" class="btn btn-info btn-sm" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-directions"></i> 導航
+                            </a>
+                        </div>
                         <div class="clearfix">
                             <p class="author-category">
                               {{ if isset .Params "authors" }}
@@ -44,7 +74,7 @@
                               {{ end }}
                               {{ if isset .Params "categories" }}
                               {{ if gt (len .Params.categories) 0 }}
-                              in 
+                              in
                               {{ range $index, $category := .Params.categories }}{{ if $index }}, {{ end }}
                                   <a href="{{ "categories/" | relLangURL }}{{ . | urlize | lower }}">{{ $category }}</a>{{ end }}
                               {{ end }}

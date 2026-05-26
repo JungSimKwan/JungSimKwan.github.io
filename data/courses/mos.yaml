@@ -4,6 +4,8 @@ weight: 1
 banner: "img/courses/mos.jpg"
 region: "新界東"
 region_id: "nte"
+address_display: "沙田馬鞍山鞍駿街14號"
+address_search: "馬鞍山體育館"
 classes:
   - 1:
     "name": "恆常班"

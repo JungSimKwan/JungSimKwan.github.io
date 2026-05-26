@@ -4,6 +4,8 @@ weight: 7
 banner: "img/courses/ssp.jpeg"
 region: "九龍"
 region_id: "kowloon"
+address_display: "深水埗深旺道38號深水埗康樂文化大樓2至4樓"
+address_search: "深水埗體育館"
 classes:
   - 1:
     "name": "兒童班"

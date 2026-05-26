@@ -4,6 +4,8 @@ weight: 5
 banner: "img/courses/cwr.png"
 region: "九龍"
 region_id: "kowloon"
+address_display: "觀塘彩榮路58號彩福邨第三期(近九龍灣站)"
+address_search: "彩榮路體育館"
 classes:
   - 1:
     "name": "兒童班"
