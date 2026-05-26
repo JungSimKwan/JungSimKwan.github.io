@@ -86,7 +86,7 @@
 }
 
 .course-card .box-image-text .top .bg {
-    opacity: 0.1;
+    display: none;
 }
 
 .course-header {
