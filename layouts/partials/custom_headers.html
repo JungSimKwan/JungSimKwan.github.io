@@ -21,8 +21,19 @@
       "name": {{ $siteTitle | jsonify }},
       "url": {{ $siteUrl | jsonify }},
       "description": {{ $siteDescription | jsonify }}
-    }{{ if or .IsHome (and (eq .Kind "section") (eq .Section "courses")) }},
+    },
     {
+      "@type": "SportsActivityLocation",
+      "name": {{ $siteTitle | jsonify }},
+      "url": {{ $siteUrl | jsonify }},
+      "telephone": "+85266820106",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "HK"
+      }
+    }
+    {{ if or .IsHome (and (eq .Kind "section") (eq .Section "courses")) }},
+    ,{
       "@type": "ItemList",
       "name": {{ printf "%s 課堂列表" $siteTitle | jsonify }},
       "itemListElement": [

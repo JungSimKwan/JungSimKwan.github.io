@@ -19,5 +19,23 @@
 <!-- owl carousel -->
 <script src="{{ "js/owl.carousel.min.js" | relURL }}"></script>
 
+<script>
+// WhatsApp CTA click tracking: send analytics event when WhatsApp links are clicked
+document.addEventListener('click', function(e) {
+	var a = e.target.closest && e.target.closest('a[href*="api.whatsapp.com/send"]');
+	if (!a) return;
+	var href = a.href;
+	if (typeof gtag === 'function') {
+		try { gtag('event', 'whatsapp_click', { 'event_category': 'contact', 'event_label': href }); } catch(e){}
+	} else if (typeof ga === 'function') {
+		try { ga('send', 'event', 'contact', 'whatsapp_click', href); } catch(e){}
+	} else if (window.dataLayer && Array.isArray(window.dataLayer)) {
+		try { window.dataLayer.push({ event: 'whatsapp_click', label: href }); } catch(e){}
+	} else {
+		console.log('WhatsApp click', href);
+	}
+});
+</script>
+
 <!-- Region Filter -->
 <script src="{{ "js/region-filter.js" | relURL }}"></script>
