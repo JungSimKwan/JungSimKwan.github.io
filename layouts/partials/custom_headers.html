@@ -32,7 +32,7 @@
         "addressCountry": "HK"
       }
     }
-    {{ if or .IsHome (and (eq .Kind "section") (eq .Section "courses")) }},
+    {{ if or .IsHome (and (eq .Kind "section") (eq .Section "courses")) }}
     ,{
       "@type": "ItemList",
       "name": {{ printf "%s 課堂列表" $siteTitle | jsonify }},
