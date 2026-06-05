@@ -1,5 +1,5 @@
 weight: 1
-name: "免費試堂"
-icon: "fas fa-hand-point-right"
+name: "小班教學"
+icon: "fas fa-users"
 url: "/contact/"
-description: "立即預約免費試堂或使用 WhatsApp 查詢課堂名額。"
+description: "採用小班教學模式，照顧每位學員的學習進度與安全。"
