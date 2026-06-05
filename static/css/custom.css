@@ -19,6 +19,22 @@
     background: url('../img/banner.jpg') center center repeat;
 }
 
+.region-links .box-simple {
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.region-links .box-simple h4 {
+    margin-bottom: 12px;
+}
+
+.region-links .box-simple p {
+    margin-bottom: 14px;
+}
+
 .anchor {
     position: absolute;
     transform: translateY(-30vh);

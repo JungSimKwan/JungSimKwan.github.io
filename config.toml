@@ -291,6 +291,10 @@ pluralizelisttitles = false
     link_url = "#"
     link_text = "Check other homepages"
 
+[params.region_links]
+    # Toggle the '附近課堂' quick links section on the homepage
+    enable = false
+
 [params.clients]
     enable = true
     # All clients are defined in their own files. You can find example items
