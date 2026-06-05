@@ -124,11 +124,11 @@ pluralizelisttitles = false
 #    url        = "/blog/"
 #    weight     = 5
 
-#[[menu.main]]
-#    name       = "學員守則"
-#    identifier = "menu.faq"
-#    url        = "/faq/"
-#    weight     = 6
+[[menu.main]]
+    name       = "常見問題"
+    identifier = "menu.faq"
+    url        = "/faq/"
+    weight     = 6
 
 [[menu.main]]
     identifier = "contact"
