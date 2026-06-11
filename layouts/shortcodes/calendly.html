@@ -1,0 +1,13 @@
+{{/* calendly shortcode
+   Usage: {{< calendly url="https://calendly.com/your-name/30min" >}}
+   If url omitted, uses .Site.Params.calendlyURL
+*/}}
+{{ $url := .Get "url" | default .Site.Params.calendlyURL }}
+{{ $title := .Get "title" | default "Calendly" }}
+{{ $height := .Get "height" | default "70vh" }}
+{{ $width := .Get "width" | default "100%" }}
+{{ if .Site.Params.enableCalendly }}
+<h3>{{ $title }}</h3>
+<div class="calendly-inline-widget" data-url="{{ $url }}" style="width:{{ $width }};height:{{ $height }};"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+{{ end }}

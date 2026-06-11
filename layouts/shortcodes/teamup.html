@@ -1,0 +1,12 @@
+{{/* teamup shortcode
+   Usage: {{< teamup id="ksab4s5gje6s8dkxu1" >}}
+   If id is omitted, uses .Site.Params.teamupEmbedID
+*/}}
+{{ $id := .Get "id" | default .Site.Params.teamupEmbedID }}
+{{ $title := .Get "title" | default "TeamUp" }}
+{{ $height := .Get "height" | default "70vh" }}
+{{ $width := .Get "width" | default "100%" }}
+{{ if .Site.Params.enableTeamUp }}
+<h3>{{ $title }}</h3>
+<iframe class="gc-iframe" src="https://teamup.com/{{ $id }}/embed?view=month&showTitle=0" style="border:0; width:{{ $width }}; height:{{ $height }};" frameborder="0" scrolling="no"></iframe>
+{{ end }}

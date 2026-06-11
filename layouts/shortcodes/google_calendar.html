@@ -1,0 +1,59 @@
+{{/* google_calendar shortcode
+   Usage: {{< google_calendar id="cal_id" mode="MONTH" showSearch="0" showEventDetails="1" showDeclined="1" wst="1" dates="20260601/20260630" ... >}}
+   All params optional; defaults use site config or sensible values
+*/}}
+{{ $id := .Get "id" }}
+{{ if not $id }}{{ $id = .Site.Params.googleCalendarID }}{{ end }}
+{{ $ctz := .Get "ctz" | default .Site.Params.calendarTimeZone | default "Asia/Hong_Kong" }}
+{{ $title := .Get "title" | default "Google Calendar" }}
+{{ $height := .Get "height" | default "70vh" }}
+{{ $width := .Get "width" | default "100%" }}
+{{ $mode := .Get "mode" | default .Site.Params.googleCalendarMode | default "MONTH" }}
+{{ $showTitle := .Get "showTitle" | default .Site.Params.googleCalendarShowTitle | default "0" }}
+{{ $showNav := .Get "showNav" | default .Site.Params.googleCalendarShowNav | default "1" }}
+{{ $showDate := .Get "showDate" | default .Site.Params.googleCalendarShowDate | default "1" }}
+{{ $showPrint := .Get "showPrint" | default .Site.Params.googleCalendarShowPrint | default "0" }}
+{{ $showTabs := .Get "showTabs" | default .Site.Params.googleCalendarShowTabs | default "0" }}
+{{ $showCalendars := .Get "showCalendars" | default .Site.Params.googleCalendarShowCalendars | default "0" }}
+{{ $showTz := .Get "showTz" | default .Site.Params.googleCalendarShowTz | default "0" }}
+{{ $showSearch := .Get "showSearch" | default .Site.Params.googleCalendarShowSearch | default "0" }}
+{{ $showEventDetails := .Get "showEventDetails" | default .Site.Params.googleCalendarShowEventDetails | default "1" }}
+{{ $showDeclined := .Get "showDeclined" | default .Site.Params.googleCalendarShowDeclined | default "1" }}
+{{ $wst := .Get "wst" | default .Site.Params.googleCalendarWST | default "1" }}
+{{ $hl := .Get "hl" | default .Site.Params.googleCalendarHL | default "zh_TW" }}
+{{ $bgcolor := .Get "bgcolor" | default .Site.Params.googleCalendarBgColor }}
+{{ $color := .Get "color" | default .Site.Params.googleCalendarColor }}
+{{ $dates := .Get "dates" | default .Site.Params.googleCalendarDates }}
+
+{{ if .Site.Params.enableGoogleCalendar }}
+<h3>{{ $title }}</h3>
+{{ $baseUrl := printf "https://calendar.google.com/calendar/embed?src=%s&ctz=%s&showTitle=%s&showNav=%s&showDate=%s&showPrint=%s&showTabs=%s&showCalendars=%s&showTz=%s&showSearch=%s&showEventDetails=%s&showDeclined=%s&wst=%s&hl=%s" ($id | urlquery) ($ctz | urlquery) $showTitle $showNav $showDate $showPrint $showTabs $showCalendars $showTz $showSearch $showEventDetails $showDeclined $wst $hl }}
+{{ if $bgcolor }}{{ $baseUrl = printf "%s&bgcolor=%s" $baseUrl $bgcolor }}{{ end }}
+{{ if $color }}{{ $baseUrl = printf "%s&color=%s" $baseUrl $color }}{{ end }}
+{{ if $dates }}{{ $baseUrl = printf "%s&dates=%s" $baseUrl ($dates | urlquery) }}{{ end }}
+{{ $url := printf "%s&mode=%s" $baseUrl $mode }}
+<iframe class="gc-iframe" src="{{ $url }}" style="border:0; width:{{ $width }}; height:{{ $height }};" data-calendar-id="{{ $id }}" data-base-url="{{ $baseUrl }}" data-narrow-mode="AGENDA" data-wide-mode="WEEK" frameborder="0" scrolling="no"></iframe>
+
+<script data-calendar-script="true">
+(function() {
+  const script = document.currentScript || document.querySelector('script[data-calendar-script]');
+  if (!script) return;
+  const iframe = script.previousElementSibling || script.parentNode.querySelector('iframe.gc-iframe');
+  if (!iframe || !iframe.classList.contains('gc-iframe')) return;
+
+  const baseUrl = iframe.getAttribute('data-base-url');
+  const narrowMode = iframe.getAttribute('data-narrow-mode') || 'AGENDA';
+  const wideMode = iframe.getAttribute('data-wide-mode') || 'WEEK';
+  const breakpoint = 768;
+
+  function updateCalendarMode() {
+    const mode = window.innerWidth < breakpoint ? narrowMode : wideMode;
+    iframe.src = baseUrl + '&mode=' + mode;
+  }
+
+  updateCalendarMode();
+  window.addEventListener('resize', updateCalendarMode);
+})();
+</script>
+{{ end }}
+

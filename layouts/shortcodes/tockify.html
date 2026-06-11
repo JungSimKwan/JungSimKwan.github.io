@@ -1,0 +1,12 @@
+{{/* tockify shortcode
+   Usage: {{< tockify url="https://tockify.com/embed/kalend/" >}}
+   If url omitted, uses .Site.Params.tockifyEmbedURL
+*/}}
+{{ $url := .Get "url" | default .Site.Params.tockifyEmbedURL }}
+{{ $title := .Get "title" | default "Tockify" }}
+{{ $height := .Get "height" | default "70vh" }}
+{{ $width := .Get "width" | default "100%" }}
+{{ if .Site.Params.enableTockify }}
+<h3>{{ $title }}</h3>
+<iframe class="gc-iframe" src="{{ $url }}" style="width:{{ $width }}; height:{{ $height }}; border:0;" frameborder="0" scrolling="no"></iframe>
+{{ end }}

@@ -35,6 +35,12 @@ pluralizelisttitles = false
     weight     = 2
 
 #[[menu.main]]
+#    name       = "課程日曆"
+#    identifier = "menu.calendar"
+#    url        = "/course-calendar/"
+#    weight     = 3
+
+#[[menu.main]]
 #    name       = "各區課堂"
 #    identifier = "section.all"
 #    url        = "/courses/"
@@ -157,6 +163,12 @@ pluralizelisttitles = false
     url = "https://www.facebook.com/jungsim.hktkd"
     pre = "<i class='fab fa-2x fa-facebook'></i>"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      # Allow iframe and script
+      unsafe = true
+
 [params]
     viewMorePostLink = "/blog/"
     author = "DevCows"
@@ -179,6 +191,42 @@ pluralizelisttitles = false
     # Style options: default (light-blue), blue, green, marsala, pink, red, turquoise, violet
     style = "default"
 
+    # Calendar embed configuration (change these to your actual IDs/URLs)
+    googleCalendarID = "jungsimhktkd@gmail.com"
+    teamupEmbedID = "ksab4s5gje6s8dkxu1"
+    tockifyEmbedURL = "https://tockify.com/embed/kalend/"
+    calendlyURL = "https://calendly.com/your-name/30min"
+    calendarTimeZone = "Asia/Hong_Kong"
+    # Enable or disable which calendars appear on the comparison page
+    enableGoogleCalendar = true
+    enableTeamUp = false
+    enableTockify = false
+    enableCalendly = false
+
+    # Google Calendar embed configuration options (can be overridden per shortcode)
+    # mode: MONTH, WEEK, AGENDA, SCHEDULE
+    # showTitle, showNav, showDate, showPrint, showTabs, showCalendars, showTz, showSearch, showEventDetails, showDeclined: 0 or 1
+    # hl: language code (e.g., zh_TW, en, ja)
+    # bgcolor, color: hex colors without # (e.g., ffffff, 0563ff)
+    # wst: week start day (0=Sunday, 1=Monday, 2=Tuesday, etc.)
+    # dates: date range (format: yyyymmdd/yyyymmdd, e.g., 20260601/20260630)
+    googleCalendarMode = "WEEK"
+    googleCalendarShowTitle = "0"
+    googleCalendarShowNav = "1"
+    googleCalendarShowDate = "1"
+    googleCalendarShowPrint = "0"
+    googleCalendarShowTabs = "1"
+    googleCalendarShowCalendars = "0"
+    googleCalendarShowTz = "0"
+    googleCalendarShowSearch = "0"
+    googleCalendarShowEventDetails = "1"
+    googleCalendarShowDeclined = "1"
+    googleCalendarWST = "1"
+    googleCalendarHL = "zh_TW"
+    # googleCalendarBgColor = "ffffff"
+    # googleCalendarColor = "0563ff"
+    # googleCalendarDates = "20260601/20260630"
+
     # Since this template is static, the contact form uses www.formspree.io as a
     # proxy. The form makes a POST request to their servers to send the actual
     # email. Visitors can send up to a 50 emails each month for free.
@@ -198,11 +246,6 @@ pluralizelisttitles = false
 
     # Formspree form supports Google reCAPTCHA Key (type v2).
     # If you use this feature, you should enable reCAPTCHA feature in the Formspree dashboard.
-    #
-    # By default, Formspree use a redirect page for recaptcha widget.
-    # If you use a recaptcha widget in your contact page, you should do next steps.
-    # (if you don't want, skip these steps)
-    #
     #   1. register your site on Google recaptcha admin page: https://www.google.com/recaptcha/admin
     #   2. select reCAPTCHA v2 and checkbox widget type.
     #   3. remember site key and secret key.
