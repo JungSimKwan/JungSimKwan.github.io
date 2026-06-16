@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <section class="faq-hero">
+        <div class="faq-hero-content">
+          <h1 class="faq-title">{{ .Title }}</h1>
+          {{ with .Params.description }}
+          <p class="faq-intro">{{ . }}</p>
+          {{ end }}
+        </div>
+
+        <div class="faq-actions">
+          <div class="faq-search">
+            <input id="faqSearchInput" type="search" placeholder="搜尋問題或關鍵字" aria-label="搜尋 FAQ">
+          </div>
+          {{ if .Params.faq_categories }}
+          <div class="faq-category-nav">
+            {{ range .Params.faq_categories }}
+            <a class="faq-category-pill" href="#{{ .name | urlize }}">{{ .name }}</a>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+      </section>
+
+      {{ if .Params.faq_categories }}
+        {{ range .Params.faq_categories }}
+        <section class="faq-category" id="{{ .name | urlize }}">
+          <h2 class="faq-category-title">{{ .name }}</h2>
+          <div class="faq-items">
+            {{ range .items }}
+            <article class="faq-item">
+              <button class="faq-question" type="button">
+                <span>{{ .question }}</span>
+              </button>
+              <div class="faq-answer">{{ .answer | markdownify }}</div>
+            </article>
+            {{ end }}
+          </div>
+        </section>
+        {{ end }}
+      {{ else }}
+        <div class="faq-items">
+          {{ range .Params.faq }}
+          <article class="faq-item">
+            <button class="faq-question" type="button">
+              <span>{{ .question }}</span>
+            </button>
+            <div class="faq-answer">{{ .answer | markdownify }}</div>
+          </article>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const faqItems = Array.from(document.querySelectorAll(".faq-item"));
+    const searchInput = document.getElementById("faqSearchInput");
+
+    faqItems.forEach(item => {
+      const question = item.querySelector(".faq-question");
+      question.addEventListener("click", () => {
+        item.classList.toggle("open");
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener("input", () => {
+        const query = searchInput.value.trim().toLowerCase();
+
+        faqItems.forEach(item => {
+          const questionText = item.querySelector(".faq-question span").textContent.toLowerCase();
+          const answerText = item.querySelector(".faq-answer").textContent.toLowerCase();
+          const matches = !query || questionText.includes(query) || answerText.includes(query);
+          item.style.display = matches ? "block" : "none";
+        });
+
+        document.querySelectorAll(".faq-category").forEach(category => {
+          const visibleItem = Array.from(category.querySelectorAll(".faq-item")).some(item => item.style.display !== "none");
+          category.style.display = visibleItem ? "block" : "none";
+        });
+      });
+    }
+  });
+</script>
