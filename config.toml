@@ -256,7 +256,7 @@ pluralizelisttitles = false
     enableRecaptchaInContactForm = false
     googleRecaptchaKey = "site_key_for_google_recaptcha"
 
-    about_us = "<p>香港跆拳道正心舘是中國香港跆拳道協會認可的屬會之一。自成立以來一直在全港各區的學校、體育館及社區中心等提供專業的跆拳道教學。</p>"
+    about_us = "<p>香港跆拳道正心舘，是中國香港跆拳道協會認可的屬會之一，擁有眾多專業師資。本舘自1993年成立以來一直在全港各區的學校、體育館及社區中心等提供專業和正規的跆拳道訓練。</p>"
     copyright = "Copyright (c) 2024, 香港跆拳道正心舘; all rights reserved."
 
     # Format dates with Go's time formatting
