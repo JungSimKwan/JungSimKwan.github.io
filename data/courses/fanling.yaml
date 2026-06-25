@@ -7,8 +7,16 @@ region_id: "nte"
 address_display: "粉嶺和鳴里8號(近花都廣場)"
 address_search: "和興體育館"
 classes:
-  - 1:
-    "name": "恆常班"
-    "day_of_week": "5"
-    "starttime": "17:30"
-    "endtime": "19:00"
+  - name: "恆常班"
+    day_of_week: "5"
+    starttime: "17:30"
+    endtime: "19:00"
+description: |
+  課程以基本功、體能、搏擊與品勢練習為核心，並兼顧比賽訓練與升帶準備。
+  
+  課程內容從技術、體能到實戰皆有系統安排，適合各年齡層學員穩定提升。
+gallery:
+  - "img/courses/fl.jpeg"
+related_courses: []
+contact_phone: "+852 6682 0106"
+registration_link: "/contact/"
