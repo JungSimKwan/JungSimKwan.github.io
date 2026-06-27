@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  <head>
+    {{ partial "headers.html" . }}
+    {{ partial "custom_headers.html" . }}
+  </head>
+
+  <body>
+
+    <div id="all">
+
+        {{ partial "top.html" . }}
+
+        {{ partial "nav.html" . }}
+
+        {{ partial "breadcrumbs.html" . }}
+
+        {{ $slug := .File.BaseFileName }}
+        {{ $course := index .Site.Data.courses $slug }}
+        {{ $.Scratch.Set "course" $course }}
+        {{ if not $course }}
+            {{ range $k, $v := .Site.Data.courses }}
+                {{ if eq $v.id $slug }}
+                    {{ $.Scratch.Set "course" $v }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+        {{ $course := $.Scratch.Get "course" }}
+        {{ $title := default .Title $course.name }}
+        {{ $addressQuery := default $course.address_search $course.address_display }}
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-md-12">
+                        <h1>{{ $title }}</h1>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom: 30px;">
+                    <div class="col-md-8">
+
+                        {{ if or $course.gallery $course.banner }}
+                        <div class="row course-gallery" style="margin-bottom: 30px;">
+                            {{ if $course.gallery }}
+                                {{ range $course.gallery }}
+                                <div class="col-xs-12 col-sm-6" style="margin-bottom: 15px;">
+                                    <img src="{{ . | relURL }}" class="img-responsive img-thumbnail" alt="{{ $title }}" />
+                                </div>
+                                {{ end }}
+                            {{ else if $course.banner }}
+                                <div class="col-xs-12" style="margin-bottom: 15px;">
+                                    <img src="{{ $course.banner | relURL }}" class="img-responsive img-thumbnail" alt="{{ $title }}" />
+                                </div>
+                            {{ end }}
+                        </div>
+                        {{ else }}
+                        <div class="row course-gallery" style="margin-bottom: 30px;">
+                            <div class="col-xs-12" style="margin-bottom: 15px;">
+                                <img src="{{ "img/placeholder.png" | relURL }}" class="img-responsive img-thumbnail" alt="{{ $title }}" />
+                            </div>
+                        </div>
+                        {{ end }}
+
+                        <div class="course-content" style="margin-bottom: 30px;">
+                            <h2>課程內容</h2>
+                            {{ if $course.description }}
+                                {{ $course.description | safeHTML }}
+                            {{ else if .Content }}
+                                {{ .Content }}
+                            {{ else }}
+                                <p>本課程內容請聯絡我們以獲取詳細資料。</p>
+                            {{ end }}
+                        </div>
+
+                        {{ if $course.classes }}
+                        <div class="course-schedule" style="margin-bottom: 30px;">
+                            <h2>時間表</h2>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>時間</th>
+                                        <th>地點</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{ range $course.classes }}
+                                    {{ $day_of_week :=  print "day_of_week." .day_of_week }}
+                                    <tr>
+                                        <td>{{ .name }}</td>
+                                        <td>{{ T $day_of_week }} {{ .starttime }} - {{ .endtime }}</td>
+                                    </tr>
+                                    {{ end }}
+                                </tbody>
+                            </table>
+                        </div>
+                        {{ end }}
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="panel panel-default" style="margin-bottom: 30px;">
+                            <div class="panel-heading"><h3 class="panel-title">地點與地圖</h3></div>
+                            <div class="panel-body">
+                                {{ with $course.address_display }}
+                                <p>{{ . }}</p>
+                                {{ end }}
+                                {{ if $addressQuery }}
+                                <div class="embed-responsive embed-responsive-4by3" style="margin-bottom: 15px;">
+                                    <iframe class="embed-responsive-item" frameborder="0" style="border:0"
+                                        src="https://www.google.com/maps?q={{ $addressQuery | urlquery }}&z=15&output=embed"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+                                <p><a class="btn btn-info btn-block" href="https://www.google.com/maps/search/{{ $addressQuery | urlquery }}" target="_blank" rel="noopener noreferrer">打開地圖導航</a></p>
+                                {{ else }}
+                                <p>地址資料未提供。</p>
+                                {{ end }}
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default" style="margin-bottom: 30px;">
+                            <div class="panel-heading"><h3 class="panel-title">聯絡方式</h3></div>
+                            <div class="panel-body">
+                                <p>如需查詢，請按以下方式聯絡我們：</p>
+                                <p><a class="btn btn-primary btn-block" href="{{ "/contact/" | relURL }}">聯絡我們</a></p>
+                                <p><a class="btn btn-success btn-block" href="https://api.whatsapp.com/send?phone=85266820106&text=我想查詢%20{{ urlquery $title }}">WhatsApp 查詢</a></p>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h3 class="panel-title">其他頁面</h3></div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li><a href="{{ "/courses/" | relURL }}">所有課程</a></li>
+                                    <li><a href="{{ "/contact/" | relURL }}">聯絡我們</a></li>
+                                    {{ if $course.related_courses }}
+                                        {{ range $index, $related := $course.related_courses }}
+                                                    {{ $relatedCourse := index $.Site.Data.courses $related }}
+                                                    {{ if not $relatedCourse }}
+                                                        {{ range $k, $v := $.Site.Data.courses }}
+                                                            {{ if eq $v.id $related }}
+                                                                {{ $.Scratch.Set "rc" $v }}
+                                                            {{ end }}
+                                                        {{ end }}
+                                                        {{ $relatedCourse = $.Scratch.Get "rc" }}
+                                                    {{ end }}
+                                                    {{ $relatedSlug := default $related $relatedCourse.id }}
+                                                    <li><a href="{{ printf "/courses/%s/" $relatedSlug | relURL }}">{{ default $related $relatedCourse.name }}</a></li>
+                                        {{ end }}
+                                    {{ end }}
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        {{ partial "footer.html" . }}
+
+    </div>
+
+    {{ partial "scripts.html" . }}
+
+  </body>
+</html>

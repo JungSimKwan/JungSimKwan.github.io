@@ -7,13 +7,20 @@ region_id: "kowloon"
 address_display: "觀塘彩榮路58號彩福邨第三期(近九龍灣站)"
 address_search: "彩榮路體育館"
 classes:
-  - 1:
-    "name": "兒童班"
-    "day_of_week": "6"
-    "starttime": "10:00"
-    "endtime": "11:00"
-  - 2:
-    "name": "青少年班"
-    "day_of_week": "6"
-    "starttime": "11:00"
-    "endtime": "12:00"
+  - name: "兒童班"
+    day_of_week: "6"
+    starttime: "10:00"
+    endtime: "11:00"
+  - name: "青少年班"
+    day_of_week: "6"
+    starttime: "11:00"
+    endtime: "12:00"
+description: |
+  課程以基本功、體能、搏擊與品勢練習為核心，並兼顧比賽訓練與升帶準備。
+  
+  課程內容從技術、體能到實戰皆有系統安排，適合各年齡層學員穩定提升。
+gallery:
+  - "img/courses/cwr.png"
+related_courses: []
+contact_phone: "+852 6682 0106"
+registration_link: "/contact/"
