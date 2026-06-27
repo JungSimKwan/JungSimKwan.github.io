@@ -1,19 +1,25 @@
 name: "大興體育館"
 id: "th"
 weight: 7
-# banner: "img/courses/choihungroad.jpeg"
+banner: null
 region: "新界西"
 region_id: "ntw"
 address_display: "屯門青松觀路38號(近大興邨及澤豐花園)"
 address_search: "大興體育館"
 classes:
-  - 1:
-    "name": "3-5歲"
-    "day_of_week": "6"
-    "starttime": "13:00"
-    "endtime": "14:00"
-  - 1:
-    "name": "6歲以上"
-    "day_of_week": "6"
-    "starttime": "14:00"
-    "endtime": "15:00"
+  - name: "3-5歲"
+    day_of_week: "6"
+    starttime: "13:00"
+    endtime: "14:00"
+  - name: "6歲以上"
+    day_of_week: "6"
+    starttime: "14:00"
+    endtime: "15:00"
+description: |
+  課程以基本功、體能、搏擊與品勢練習為核心，並兼顧比賽訓練與升帶準備。
+  
+  課程內容從技術、體能到實戰皆有系統安排，適合各年齡層學員穩定提升。
+gallery:
+related_courses: []
+contact_phone: "+852 6682 0106"
+registration_link: "/contact/"

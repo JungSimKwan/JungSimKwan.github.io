@@ -17,31 +17,32 @@
         {{ $courses := sort .Site.Data.courses "weight" }}
         <div class="col-md-9" id="blog-listing-medium">
 
-            {{ range $courses }}
-            <span class="anchor" id="{{ .id }}"></span>
-            <section class="courses course-card" data-region="{{ .region_id }}">
+            {{ range $key, $course := $courses }}
+            <span class="anchor" id="{{ $course.id }}"></span>
+            <section class="courses course-card" data-region="{{ $course.region_id }}">
+                <a class="course-card-link" href="{{ printf "/courses/%s/" $course.id | relURL }}" style="display:block;color:inherit;text-decoration:none;">
                 <div class="course-header">
-                    <span class="course-badge">{{ .region }}</span>
-                    <h2>{{ .name }}</h2>
+                    <span class="course-badge">{{ $course.region }}</span>
+                    <h2>{{ $course.name }}</h2>
                     <p class="course-location">
                         <i class="fas fa-map-marker-alt" style="color: #e74c3c; margin-right: 5px;"></i>
-                        <a href="https://www.google.com/maps/search/{{ .address_search | urlize }}" target="_blank" rel="noopener noreferrer" class="address-link-detail" title="在Google Maps中查看位置">
-                            {{ .address_display }}
+                        <a href="https://www.google.com/maps/search/{{ $course.address_search | urlize }}" target="_blank" rel="noopener noreferrer" class="address-link-detail" title="在Google Maps中查看位置">
+                            {{ $course.address_display }}
                         </a>
                     </p>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                       <div class="image">
-                          <a href="{{ if .Permalink }}{{ .Permalink }}{{ else }}#{{ .id }}{{ end }}">
-                              {{ if .banner }}
-                              <img src="{{ .banner | relURL }}" class="img-responsive" alt="{{ .name }}">
-                              {{ end }}
-                          </a>
+                          {{ if $course.banner }}
+                              <img src="{{ $course.banner | relURL }}" class="img-responsive" alt="{{ $course.name }}">
+                          {{ else }}
+                              <img src="{{ "img/placeholder.png" | relURL }}" class="img-responsive" alt="{{ $course.name }}">
+                          {{ end }}
                       </div>
                     </div>
                     <div class="col-md-8">
-                        {{ if .classes }}
+                        {{ if $course.classes }}
                         <div class="course-schedule">
                             <h4>課程時間</h4>
                             <table class="table table-striped">
@@ -49,7 +50,7 @@
                                     <tr><th>課程</th><th>日期</th><th>時間</th></tr>
                                 </thead>
                                 <tbody>
-                                    {{ range .classes }}
+                                    {{ range $course.classes }}
                                     {{ $day_of_week :=  print "day_of_week." .day_of_week}}
                                     <tr><td>{{ .name }}</td><td>{{ T $day_of_week }}</td><td>{{ .starttime }} - {{ .endtime }} </td></tr>
                                     {{ end }}
@@ -57,33 +58,17 @@
                             </table>
                         </div>
                         {{ end }}
-                        {{ if .Permalink }}
-                        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-                        {{ end }}
                         <div class="course-actions" style="margin-top: 15px;">
-                            <a href="https://api.whatsapp.com/send?phone=85266820106&text=我想報名 {{ .name }}" class="btn btn-success btn-sm" target="_blank" rel="noopener noreferrer">
+                            <a href="https://api.whatsapp.com/send?phone=85266820106&text=我想報名 {{ $course.name }}" class="btn btn-success btn-sm" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-whatsapp"></i> WhatsApp 報名
                             </a>
-                            <a href="https://www.google.com/maps/search/{{ .address_search | urlize }}" class="btn btn-info btn-sm" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.google.com/maps/search/{{ $course.address_search | urlize }}" class="btn btn-info btn-sm" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-directions"></i> 導航
                             </a>
                         </div>
-                        <div class="clearfix">
-                            <p class="author-category">
-                              {{ if isset .Params "authors" }}
-          {{ i18n "authorBy" }} {{ range $index, $author := .Params.authors }}{{ if $index }}, {{ end }}<a href="{{ (printf "%s/%s" ("authors" | relLangURL) ($author | urlize)) }}">{{ $author }}</a>{{ end }}
-                              {{ end }}
-                              {{ if isset .Params "categories" }}
-                              {{ if gt (len .Params.categories) 0 }}
-                              in
-                              {{ range $index, $category := .Params.categories }}{{ if $index }}, {{ end }}
-                                  <a href="{{ "categories/" | relLangURL }}{{ . | urlize | lower }}">{{ $category }}</a>{{ end }}
-                              {{ end }}
-                              {{ end }}
-                            </p>
-                        </div>
                     </div>
                 </div>
+                </a>
             </section>
             {{ end }}
         </div>
