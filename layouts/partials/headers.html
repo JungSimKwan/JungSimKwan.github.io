@@ -2,17 +2,27 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{{ $title_plain := .Title | markdownify | plainify }}
-<title>{{ block "title" . }}{{ with .Params.Title }}{{ . | markdownify | plainify }} | {{ end }}{{ .Site.Title | markdownify | plainify }}{{ end }}</title>
+{{ $siteTitle := .Site.Title | markdownify | plainify }}
+{{ $pageTitle := .Title | markdownify | plainify }}
+{{ $description_plain := default .Site.Params.defaultDescription .Description | markdownify | plainify }}
+{{ if and $pageTitle (ne $pageTitle $siteTitle) }}
+<title>{{ $pageTitle }} | {{ $siteTitle }}</title>
+{{ else }}
+<title>{{ $siteTitle }}</title>
+{{ end }}
+<meta name="application-name" content="{{ $siteTitle }}">
 <meta name="author" content="{{ .Param "author" }}" />
+<meta name="description" content="{{ $description_plain }}">
+<meta property="og:site_name" content="{{ $siteTitle }}">
+<meta property="og:title" content="{{ if and $pageTitle (ne $pageTitle $siteTitle) }}{{ $pageTitle }} | {{ $siteTitle }}{{ else }}{{ $siteTitle }}{{ end }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
 {{ $keywords := .Site.Params.defaultKeywords | default (slice "" | first 0) }}
 {{ if isset .Params "tags" }}{{ range .Params.tags }}{{ $keywords = $keywords | append . }}{{ end }}{{ end }}
 {{ if isset .Params "keywords" }}{{ range .Params.keywords }}{{ $keywords = $keywords | append . }}{{ end }}{{ end }}
 {{ if gt (len $keywords) 0 }}
 <meta name="keywords" content="{{ delimit (uniq $keywords) ", " }}">
 {{ end }}
-{{ $description_plain := default .Site.Params.defaultDescription .Description | markdownify | plainify }}
-<meta name="description" content="{{ $description_plain }}">
 
 {{ hugo.Generator }}
 
@@ -63,8 +73,8 @@
 {{ if $is_valid_image }}
 {{ $image_ext := path.Ext $image }}
 <meta property="og:locale" content="{{ replace .Site.LanguageCode "-" "_" }}">
-<meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="og:title" content="{{ $title_plain }}">
+<meta property="og:site_name" content="{{ $siteTitle }}">
+<meta property="og:title" content="{{ if and $pageTitle (ne $pageTitle $siteTitle) }}{{ $pageTitle }} | {{ $siteTitle }}{{ else }}{{ $siteTitle }}{{ end }}">
 <meta property="og:type" content="{{ cond $is_blog "article" "website" }}">
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:description" content="{{ $description_plain }}">
@@ -92,7 +102,8 @@
 <!-- Twitter Card meta tags -->
 <meta name="twitter:card" content="summary{{ if (and $is_blog (and $has_image $is_valid_image)) }}_large_image{{ end }}">
 {{ with .Param "twitter_site" }}<meta name="twitter:site" content="@{{ . }}">{{ end }}
-<meta name="twitter:title" content="{{ $title_plain | truncate 70 }}">
+{{ $twitterTitle := cond (and $pageTitle (ne $pageTitle $siteTitle)) (printf "%s | %s" $pageTitle $siteTitle) $siteTitle }}
+<meta name="twitter:title" content="{{ $twitterTitle | truncate 70 }}">
 {{ if $is_valid_image }}
 <meta name="twitter:image" content="{{ $image | absURL }}">
 {{ end }}

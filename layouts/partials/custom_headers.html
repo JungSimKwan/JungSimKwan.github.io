@@ -20,7 +20,9 @@
       "@type": "WebSite",
       "name": {{ $siteTitle | jsonify }},
       "url": {{ $siteUrl | jsonify }},
-      "description": {{ $siteDescription | jsonify }}
+      "alternateName": [{{ (replace (replace $siteUrl "https://" "") "/" "") | jsonify }}],
+      "description": {{ $siteDescription | jsonify }},
+      "inLanguage": "zh-TW"
     },
     {
       "@type": "SportsActivityLocation",
